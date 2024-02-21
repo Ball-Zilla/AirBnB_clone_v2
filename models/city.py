@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ City Module for HBNB project """
 import models
+from models.place import Place
 from models.base_model import BaseModel, Base
 from os import getenv
 import sqlalchemy
@@ -14,3 +15,7 @@ class City(BaseModel, Base):
     name = Column(String(128), nullable=False)
     places = relationship("Place", cascade='all, delete, delete-orphan',
                           backref="cities")
+
+    def __init__(self, *args, **kwargs):
+        """initializes city"""
+        super().__init__(*args, **kwargs)
