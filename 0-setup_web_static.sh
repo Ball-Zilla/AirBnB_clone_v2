@@ -18,7 +18,7 @@ sudo echo "server {
     listen [::]:80 default_server;
     add_header X-Served-By $HOSTNAME;
     root   /var/www/html;
-    index  index.html index.htm;
+    index index.html index.htm index.nginx-debian.html;
 
     location /hbnb_static {
         alias /data/web_static/current;
@@ -29,8 +29,8 @@ sudo echo "server {
         return 301 https://github.com/eael;
     }
 
-    error_page 404 /404.html;
-    location /404 {
+    error_page 404 /404_error.html;
+    location /404_error {
       root /var/www/html;
       internal;
     }
