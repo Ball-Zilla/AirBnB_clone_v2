@@ -4,7 +4,7 @@
 sudo apt-get update
 sudo apt-get install -y nginx
 
-sudo mkdir /data/web_static/shared/
+sudo mkdir -p /data/web_static/shared/
 sudo mkdir -p /data/web_static/releases/test/
 
 sudo echo "Hello World" > /data/web_static/releases/test/index.html
@@ -26,7 +26,7 @@ sudo echo "server {
     }
 
     location /redirect_me {
-        return 301 http://cuberule.com/;
+        return 301 https://github.com/eael;
     }
 
     error_page 404 /404.html;
